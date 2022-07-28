@@ -41,7 +41,7 @@ axis off
 imwrite(abs(I),'o.png');
 
 % set parameters
-a=32;%image of size axa, change needed for different scenes
+a=32; %image of size axa, change needed for different scenes
 M=32; %number of cross-ranges, change needed for different scenes
 N=32; % number of ranges, change needed for different scenes 
 
@@ -58,22 +58,22 @@ lambdaFB=1;
 miuFB=2e-4;
 gammaFB=7.1e-3;
 
-% % generate the observation matrix
-% T=form_SAR_projmtx(1,a,0);    
-% D=Sar_FT_matrix(M,N);
-% C=D*T;
+% generate the observation matrix
+T=form_SAR_projmtx(1,a,0);    
+D=Sar_FT_matrix(M,N);
+C=D*T;
 
-% load a saved result of the observation matrix C 
-% the "C" for a 64*64 scene or a 128*128 scene is too large to be uploaded to Github
-load('C_32.mat');
+% % load a saved result of the observation matrix C 
+% % the "C" for a 64*64 scene or a 128*128 scene is too large to be uploaded to Github
+% load('C_32.mat');
 
-% % generate the simulated corrupted phase history and the result of polar format algorithm
-% PH_err=SAR_phase_history(I,C,M,N);
+% generate the simulated corrupted phase history and the result of polar format algorithm
+PH_err=SAR_phase_history(I,C,M,N);
 
-% load a saved result of "SAR_phase_history(I,C,M,N)" to fix the added phase errors and noise 
-% for Scene 2, use "load('cph_t.mat');"; for Scene 3, use "load('cph_i.mat');" 
-% for scene 4, use "load('cph_B1s.mat');"; for Scene 5, use "load('cph_grw.mat');"
-load('cph_sim.mat'); 
+% % load a saved result of "SAR_phase_history(I,C,M,N)" to fix the added phase errors and noise 
+% % for Scene 2, use "load('cph_t.mat');"; for Scene 3, use "load('cph_i.mat');" 
+% % for scene 4, use "load('cph_B1s.mat');"; for Scene 5, use "load('cph_grw.mat');"
+% load('cph_sim.mat'); 
 
 % WAMA & CFBA
 % IM=WAMA(C,PH_err,a,M,N,lambda,beta,delta,gamma); % WAMA

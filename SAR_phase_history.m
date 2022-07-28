@@ -31,11 +31,8 @@ iq=reshape(PH,N,M);
 RR=abs(iq);
 QQ=angle(iq);
 
-load('pe1.mat');
-Y=(-pi/2)+pi*Z;
-
-% Y = rand(M,1);
-% Y=(-pi/2)+pi*Y;
+Y = rand(M,1);
+Y=(-pi/2)+pi*Y;
 %% Y=-pi+2*pi*Y;
 
 %x=-1:2/(a-1):1;
